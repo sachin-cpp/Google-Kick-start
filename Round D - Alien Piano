@@ -1,0 +1,111 @@
+#include<iostream>
+using namespace std ;
+
+
+int main() 
+{
+	int t;
+	cin>>t;
+	for(int i =1 ;i<=t;i++)
+	{
+	    int b[4] ;
+	    for(int j=0;j<=3;j++)
+	    {
+	        b[j] = 0;
+	    }
+	    int n;
+	    cin>>n;
+	    int arr[n];
+	    for(int j=0;j<n;j++)
+	    {
+	        cin>>arr[j];
+	    }
+	    /*
+	    for(int j=0;j<4;j++)
+	    {
+	        cout<<a[j];
+	    }
+	    */
+	    int count = 0;
+	    
+	    for(int j=0;j<n-1;)
+	    {
+	        while(arr[j] < arr[j+ 1] )
+	        {
+	            //k=0;  //if k != 0 ..........else k++ ...... if k=3 -> count++ 
+	            
+	            for(int k=0;k<4;k++)
+	            {
+	                if(b[k] == 0 )
+	                {
+	                    b[k] =1 ;
+	                    cout<<k<<" ";
+	                    break;
+	                }
+	                if(k==4)
+	                {
+	                    count++;
+	                    k=0;
+	                }
+	            }
+	            j++;
+	        }
+	        //reset 0
+	        for(int c=0;c<4;c++)
+	        {
+	            if(c==k)
+	            {
+	                b[c] = 1 ;
+	            }
+	            else
+	            {
+	                b[c] = 0;
+	            }
+	        }
+	        
+	        while(arr[j] > arr[j+ 1])
+	        {
+	            //k=3;
+	            
+	            for(int k = 3;k >=0;k--)
+	            {
+	                if(b[k] == 0)
+	                {
+	                    b[k] =1;
+	                    cout<<k<<" ";
+	                    break;
+	                }
+	                if(k==0)
+	                {
+	                    count++;
+	                    k=3;
+	                }
+	            }
+	            j++;
+	        }
+	        //reset 0
+	        for(int c=0;c<4;c++)
+	        {
+	            if(c==k)
+	            {
+	                b[c] = 1 ;
+	            }
+	            else
+	            {
+	                b[c] = 0;
+	            }
+	        }
+	        
+	        else
+	        {
+	            //k=k;
+	            cout<<k<<" ";
+	            j++;
+	        }
+	    }
+	    
+	    
+	    
+	}
+	return 0;
+}
